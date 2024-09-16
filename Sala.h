@@ -1,20 +1,20 @@
 #ifndef SALA_H
 #define SALA_H
-#include <string>
-#include "Programacion.h"
 
+#include "Pelicula.h"
 
 class Sala
 {
     private:
-        string nom_sala;
-        Programacion programacionO;
-
+        int hora_inicio = 0;
+        int minuto_inicio = 0;
+        int hora_fin = 0;
+        int minuto_fin = 0;
     public:
         Sala();
-        virtual ~Sala();
+        ~Sala();
+        void Programacion(Pelicula _pelicula, int _hora_inicio, int _minuto_inicio, int _hora_fin, int _minuto_fin);
+        void getProgramacion(Pelicula _pelicula); 
 };
-#else
-class Sala
 
-#endif // SALA_H
+#endif
