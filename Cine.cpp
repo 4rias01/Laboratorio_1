@@ -1,11 +1,31 @@
 #include "Cine.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
-Cine::Cine()
+Cine::Cine(){}
+Cine::~Cine(){}
+
+void Cine::setPrecio_general()// Obtener el precio general 
 {
-    //ctor
+    string aux="";
+    cout << "Introduce el precio general: ";
+    getline(cin, aux);
+    precio_general = stoi(aux);  
 }
 
-Cine::~Cine()
+float Cine::getPrecio_general()//conocer el precio general
 {
-    //dtor
+    return precio_general;
+}
+
+void Cine::consult_por_horario()
+
+{
+
+}
+
+void Cine::consult_por_genero()
+{
+
 }
