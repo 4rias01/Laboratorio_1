@@ -7,7 +7,8 @@
 class Sala
 {
     private:
-    Programacion listProgramacion[4];
+        
+        Programacion listProgramacion[4];
     public:
         Sala();
         ~Sala();
