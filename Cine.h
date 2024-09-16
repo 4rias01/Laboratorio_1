@@ -5,9 +5,9 @@
 class Cine
 {
     private:
-
-        float precio_general;
-        Sala salasA[5];
+        double precio_general;
+        Sala salasArr[5];
+        int cantSalas;
     
     public:
         Cine();
@@ -20,7 +20,5 @@ class Cine
 
 #else
 class Cine;
-
-
 #endif 
 

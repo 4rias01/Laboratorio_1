@@ -2,19 +2,16 @@
 #include "Pelicula.h"
 #include "Sala.h"
 #include "Validaciones.h"
-#include <iostream>
-#include <string>
 
-using namespace std;
 
 int main() 
 {
-    int opcion = 0, hora_inicio0 = 0, minuto_inicio0 = 0, hora_fin0 = 0, minuto_fin0 = 0;    
+    int opc = 0, hora_inicio0 = 0, minuto_inicio0 = 0, hora_fin0 = 0, minuto_fin0 = 0;    
     string aux = "", genero0 = "", nombre0 = "", nombre1 = "";
 
-    Validaciones validaciones;  // Crear un objeto de la clase Validacion 
-    Cine cine;  // Crear un objeto de la clase Cine 
-    cine.setPrecio_general();  // se establece el precio general
+    Validaciones val;  // Crear un objeto de la clase Validacion 
+    Cine elCine;  // Crear un objeto de la clase Cine 
+    elCine.setPrecio_general();  // se establece el precio general
 
     do {
         // Mostrar el menú
@@ -28,10 +25,10 @@ int main()
         // Obtener la opción del usuario
         cout << "Selecciona una opción: ";
         getline(cin, aux);
-        opcion = stoi(aux);
+        opc = stoi(aux);
 
         // Utilizamos switch para las diferentes opciones
-        switch (opcion) {
+        switch(opc){
             case 1:
                 cout << "Has seleccionado la Opción: Ingresar película." << endl;
               
@@ -40,10 +37,10 @@ int main()
                     cout << "Digite el género de la película (comedia, drama, etc.): ";
                     getline(cin, genero0);
                     
-                    if (!validaciones.validar_genero(genero0)) {
+                    if (!val.validar_genero(genero0)) {
                         cout << "Género inválido, intente de nuevo." << endl;
                     }
-                } while (!validaciones.validar_genero(genero0));  // Repetir hasta que el género sea válido
+                } while (!val.validar_genero(genero0));  // Repetir hasta que el género sea válido
                 
                 cout << "Digite el nombre de la película: ";
                 getline(cin, nombre0);
@@ -82,4 +79,4 @@ int main()
 
         cout << endl;  // Salto de línea para mejor legibilidad
 
-    } while (opcion != 5);  // El programa continúa hasta que el usuario elija salir
+    } while (opc != 5);  // El programa continúa hasta que el usuario elija salir
