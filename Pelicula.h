@@ -1,28 +1,23 @@
 #ifndef PELICULA_H
 #define PELICULA_H
-#include <string>
-#include "Boleta.h"
-
 using namespace std;
-
-
 class Pelicula
 {
     private:
-        string nombre, genero;
-        int hora_inicio, minuto_inicio, hora_fin, minuto_fin;
-        Boleta boletaA[40];
-        int cant_boletas;
-
+        string nombre;
+        string genero;
+        float precio;
     public:
         Pelicula();
-        int getHorario(int);
+        Pelicula( string, string);
+        ~Pelicula();
+        float calprecio(float, string);
         string getNombre();
         string getGenero();
-        void comprar_boleta();
-        virtual ~Pelicula();
 };
-#else
-class Pelicula
 
-#endif // PELICULA_H
+#else
+
+class Pelicula;
+
+#endif 
