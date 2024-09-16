@@ -2,21 +2,25 @@
 #define CINE_H
 #include "Sala.h"
 
-
 class Cine
 {
     private:
-        int precio_general;
-        Sala salaA[5];
-        int cant_salas;
 
+        float precio_general;
+        Sala salasA[5];
+    
     public:
         Cine();
-        void ingresar_sala();
+        ~Cine();
+        void setPrecio_general();
         void consult_por_horario();
         void consult_por_genero();
-        int getPrecio_general();
-        virtual ~Cine();
+        float getPrecio_general();
 };
 
-#endif // CINE_H
+#else
+class Cine;
+
+
+#endif 
+
