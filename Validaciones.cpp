@@ -2,50 +2,46 @@
 #include <string>
 using namespace std;
 
-Validaciones::Validaciones(){}
+/*Función para convertir strings a minúscula*/
+string minus(string dato)
+{
+    for(int i = 0; i < dato.length(); i++)
+    {
+        dato[i] = tolower(dato[i]);
+    }
 
+    return dato;
+}
+
+/*Constructor vacío de la clase Validaciones*/
+Validaciones::Validaciones()
+{
+
+}
+
+/*Destructor de la clase Validaciones*/
 Validaciones::~Validaciones(){}
 
+
+/*validación de género de película válido*/
 bool Validaciones::validar_genero(string genero)
 {
-    if (genero == "comedia")
-    {
-        return false;
-    }
+    genero = minus(genero);
 
-    else if (genero == "drama" )
-    {
-        return false;
-    }
-    else if (genero == "romance")
-    {
-        return false;
-    }
-    else if (genero == "accion" )
-    {
-        return false;
-    }
-    else if (genero == "suspenso") 
-    {
-        return false;
-    }
-    else if (genero == "ciencia ficcion") 
-    {
-        return false;
-    }
-    else if (genero == "terror") 
-    {
-        return false;
-    }
-    else if (genero == "fantasia")
-    {
-        return false;
-    }
+    if (genero == "comedia"
+    or genero == "drama"
+    or genero == "romance"
+    or genero == "accion"
+    or genero == "suspenso"
+    or genero == "ciencia ficcion"
+    or genero == "terror"
+    or genero == "fantasia")
+        return true;
     else
         return true;
 }
 
-float Validaciones::getParametro(string genero)
+double Validaciones::getParametro(string genero)
 {
     if (genero == "comedia" or genero=="drama")
     {
@@ -73,3 +69,13 @@ bool Validaciones::validar_horario(int,int)
 {
 
 }
+
+bool Validaciones::vacio(string dato)
+{
+    if(dato.length == 0)
+        return true;
+    else
+        return false;
+}
+
+

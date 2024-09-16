@@ -1,17 +1,18 @@
 #ifndef PELICULA_H
 #define PELICULA_H
+#include <string>
 using namespace std;
 class Pelicula
 {
     private:
         string nombre;
         string genero;
-        float precio;
+        double precio;
     public:
         Pelicula();
-        Pelicula( string, string);
+        Pelicula(string, string);
         ~Pelicula();
-        float calprecio(float, string);
+        double calPrecio(double, string);
         string getNombre();
         string getGenero();
 };

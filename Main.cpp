@@ -2,16 +2,15 @@
 #include "Pelicula.h"
 #include "Sala.h"
 #include "Validaciones.h"
+#include <iostream>
 
 
 int main() 
 {
-    int opc = 0, hora_inicio0 = 0, minuto_inicio0 = 0, hora_fin0 = 0, minuto_fin0 = 0;    
-    string aux = "", genero0 = "", nombre0 = "", nombre1 = "";
+    int opc = 0;
 
-    Validaciones val;  // Crear un objeto de la clase Validacion 
     Cine elCine;  // Crear un objeto de la clase Cine 
-    elCine.setPrecio_general();  // se establece el precio general
+    elCine.setPrecio_general();  //Pide y establece el precio general
 
     do {
         // Mostrar el menú
@@ -23,34 +22,12 @@ int main()
         cout << "5. Salir" << endl;
 
         // Obtener la opción del usuario
-        cout << "Selecciona una opción: ";
-        getline(cin, aux);
-        opc = stoi(aux);
+        opc = stoi(Leer("Selecciona una opción: "));
 
         // Utilizamos switch para las diferentes opciones
         switch(opc){
             case 1:
-                cout << "Has seleccionado la Opción: Ingresar película." << endl;
-              
-                // Validar y obtener el género de la película
-                do {
-                    cout << "Digite el género de la película (comedia, drama, etc.): ";
-                    getline(cin, genero0);
-                    
-                    if (!val.validar_genero(genero0)) {
-                        cout << "Género inválido, intente de nuevo." << endl;
-                    }
-                } while (!val.validar_genero(genero0));  // Repetir hasta que el género sea válido
-                
-                cout << "Digite el nombre de la película: ";
-                getline(cin, nombre0);
-                nombre1 = nombre0;
-                
-                
-                
-                // Crear una película
-                Pelicula pelicula(nombre0, genero0);  // Cambiar el nombre del objeto
-                cout << "Película ingresada correctamente." << endl;
+                elCine.ingresar_Pelicula();
                 break;
             
             case 2:

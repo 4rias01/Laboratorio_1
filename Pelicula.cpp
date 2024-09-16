@@ -1,16 +1,17 @@
 #include "Pelicula.h"
 #include "Validaciones.h"
-#include <iostream>  // Para std::cout si necesitas imprimir algo
+#include <iostream>
+
 using namespace std;
 
-Validaciones validaciones;  // Crear una Validacion 
-
+/*Constructor vacio de clase, incializa el nombre y género como strings vacios*/
 Pelicula::Pelicula()
 {
     nombre = "";
     genero = "";
 }
 
+/*Constructor de clase que asigna nombre y genero*/
 Pelicula::Pelicula(string _nombre, string _genero)
 {
     nombre = _nombre;
@@ -19,7 +20,7 @@ Pelicula::Pelicula(string _nombre, string _genero)
 
 Pelicula::~Pelicula() {}
 
-float Pelicula::calprecio(float _precio, string _genero)
+double Pelicula::calPrecio(double _precio, string _genero)
 {
     precio = validaciones.getParametro(nombre); 
     return precio;
