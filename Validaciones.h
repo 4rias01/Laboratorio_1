@@ -1,16 +1,22 @@
 #ifndef VALIDACIONES_H
 #define VALIDACIONES_H
 
-
 class Validaciones
 {
+    private:
+        float parametro;
+
     public:
         Validaciones();
-        bool validar_hora(int);
-        bool validar_minuto(int);
-
-        virtual ~Validaciones();
+        ~Validaciones();
+        bool validar_genero(string);
+        bool validar_horario(int,int);
+        float getParametro(string);
 
 };
 
-#endif // VALIDACIONES_H
+#else
+class Validaciones;
+
+
+#endif 
