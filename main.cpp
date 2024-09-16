@@ -1,13 +1,17 @@
 #include "Cine.h"
+#include "Cine.cpp"
 #include "Pelicula.h"
+#include "Pelicula.cpp"
 #include "Sala.h"
+#include "Sala.cpp"
 #include "Validaciones.h"
+#include "Validaciones.cpp"
 #include <iostream>
 
 
-int main() 
+int main()
 {
-    int opc = 0;
+    int opc;
 
     Cine elCine;  // Crear un objeto de la clase Cine 
     elCine.setPrecio_general();  //Pide y establece el precio general
@@ -51,9 +55,12 @@ int main()
             
             default:
                 cout << "Opción inválida. Por favor, selecciona un número entre 1 y 5." << endl;
-                break;
         }
 
         cout << endl;  // Salto de línea para mejor legibilidad
 
-    } while (opc != 5);  // El programa continúa hasta que el usuario elija salir
+    }while(opc != 5);  // El programa continúa hasta que el usuario elija salir
+
+return 0;
+
+}

@@ -66,10 +66,10 @@ void Cine::ingresar_Pelicula()
     do{
         genero = Leer("Ingrese el género de la película: ");
                     
-        if (!val.validar_genero(genero)) {
+        if (val.validar_genero(genero) == false) {
             cout << "Género inválido, intente de nuevo: " << endl;
         }
-    }while (!val.validar_genero(genero));  //Sigue pidiendo género hasta que sea válido
+    }while (val.validar_genero(genero) == false);  //Sigue pidiendo género hasta que sea válido
                 
 
     do{
@@ -83,6 +83,6 @@ void Cine::ingresar_Pelicula()
                 
                 
     // Crea el nuevo objeto película
-    Pelicula pelicula(nombre, genero);  //Llama al constructor de la clase Pelicula
+    Pelicula pelicula(nombre, genero, getPrecio_general());  //Llama al constructor de la clase Pelicula
     cout << "Película ingresada correctamente." << endl;
 }
