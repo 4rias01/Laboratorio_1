@@ -9,20 +9,11 @@ using namespace std;
 Validaciones val = Validaciones(); 
 
 
-/*Funcion para pedir y leer variables de la terminal*/
-string Leer(string mensaje)
-{
-    string aux;
-    cout << mensaje;
-    getline(cin, aux);
-
-    return aux;
-}
-
 /*Constructor vacío de la clase Cine,  inicializa el contador numSalas a 0*/
 Cine::Cine()
 {
     cantSalas = 0;
+    cantPeliculas = 0;
 }
 
 /*Destructor de la clase Cine*/
@@ -55,34 +46,62 @@ void Cine::consult_por_genero()
 }
 
 /*Pide al usuario la información de la película y crea el objeto*/
-void Cine::ingresar_Pelicula()
+void Cine::ingresarPelicula()
 {
-    int hora_inicio0 = 0, minuto_inicio0 = 0, hora_fin0 = 0, minuto_fin0 = 0;    
-    string aux = "", genero = "", nombre = "";
-
     cout << "Has seleccionado la opción: Ingresar película." << endl;
-              
-                // Validar y obtener el género de la película
-    do{
-        genero = Leer("Ingrese el género de la película: ");
-                    
-        if (val.validar_genero(genero) == false) {
-            cout << "Género inválido, intente de nuevo: " << endl;
-        }
-    }while (val.validar_genero(genero) == false);  //Sigue pidiendo género hasta que sea válido
-                
 
-    do{
-        nombre = Leer("Ingrese el nombre de la película: ");
+    if(cantPeliculas < 20)
+    {
+        int hora_inicio0 = 0, minuto_inicio0 = 0, hora_fin0 = 0, minuto_fin0 = 0;    
+        string aux = "", genero = "", nombre = "";
+
         
-        if(val.vacio(nombre))
-            cout << "Nombre requerido, ingrese el nombre por favor: " << endl;
+                
+                    // Validar y obtener el género de la película
+        do{
+            genero = Leer("Ingrese el género de la película: ");
+                        
+            if (val.validar_genero(genero) == false) {
+                cout << "Género inválido, intente de nuevo: " << endl;
+            }
+        }while (val.validar_genero(genero) == false);  //Sigue pidiendo género hasta que sea válido
+                    
 
-    }while(val.vacio(nombre));
-                
-                
-                
-    // Crea el nuevo objeto película
-    Pelicula pelicula(nombre, genero, getPrecio_general());  //Llama al constructor de la clase Pelicula
-    cout << "Película ingresada correctamente." << endl;
+        
+        nombre = val.leerNoVacio("Ingrese el nombre de la película: ");
+            
+        
+                    
+        // Crea el nuevo objeto película
+        Pelicula pelicula(nombre, genero, getPrecio_general());  //Llama al constructor de la clase Pelicula
+        cantPeliculas++; //Aumenta en 1 el contador de películas
+        cout << "Película ingresada correctamente." << endl;
+    }
+    else
+        cout << "Error: Ya se alcanzó el límite de películas ingresadas" << endl;
+    
+}
+
+/*Pide al usuario los datos requeridos para ingresar una sala con su programación*/
+void Cine::ingresarSala()
+{
+    cout << "Has seleccionado la Opción: Ingresar Sala." << endl;
+    if(cantSalas < 5)
+    {
+        string nombre, nombrePelicula;
+        int hInicio, mInicio, hFin, mFin;
+
+        nombre = val.leerNoVacio("Ingrese nombre de sala: ");
+
+        
+
+
+
+
+
+
+    }
+    
+
+
 }

@@ -1,11 +1,22 @@
 #include "Programacion.h"
+#include "Pelicula.h"
 
 Programacion::Programacion()
 {
-    //ctor
+
 }
 
-Programacion::~Programacion()
+
+void Programacion::ingresar_pelicula()
 {
-    //dtor
+
+}
+void Programacion::definir_horario()
+{
+
+}
+
+void Programacion::getHorario()
+{
+
 }

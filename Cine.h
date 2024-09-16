@@ -2,7 +2,7 @@
 #define CINE_H
 #include "Sala.h"
 
-string Leer(string);
+
 
 class Cine
 {
@@ -10,6 +10,7 @@ class Cine
         double precio_general;
         Sala salasArr[5];
         int cantSalas;
+        int cantPeliculas;
     
     public:
         Cine();
@@ -18,7 +19,8 @@ class Cine
         void consult_por_horario();
         void consult_por_genero();
         double getPrecio_general();
-        void ingresar_Pelicula();
+        void ingresarPelicula();
+        void ingresarSala();
 };
 
 #else

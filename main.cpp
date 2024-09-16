@@ -31,12 +31,11 @@ int main()
         // Utilizamos switch para las diferentes opciones
         switch(opc){
             case 1:
-                elCine.ingresar_Pelicula();
+                elCine.ingresarPelicula();
                 break;
             
             case 2:
-                cout << "Has seleccionado la Opción: Ingresar Sala." << endl;
-                // Aquí agregar la lógica para ingresar una sala
+                elCine.ingresarSala();
                 break;
             
             case 3:

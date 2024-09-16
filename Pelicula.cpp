@@ -6,12 +6,12 @@
 using namespace std;
 
 /*Constructor vacio de clase, incializa el nombre y género como strings vacios*/
-/*Pelicula::Pelicula()
+Pelicula::Pelicula()
 {
     nombre = "";
     genero = "";
 }
-*/
+
 
 double Pelicula::calPrecio(double _precio, string _genero)
 {

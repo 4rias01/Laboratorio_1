@@ -14,6 +14,17 @@ string minusc(string dato)
     return dato;
 }
 
+/*Funcion para pedir y leer variables de la terminal*/
+string Leer(string mensaje)
+{
+    string aux;
+    cout << mensaje;
+    getline(cin, aux);
+
+    return aux;
+}
+
+
 /*Constructor vacío de la clase Validaciones*/
 Validaciones::Validaciones()
 {
@@ -21,7 +32,9 @@ Validaciones::Validaciones()
 }
 
 /*Destructor de la clase Validaciones*/
-Validaciones::~Validaciones(){}
+Validaciones::~Validaciones(){
+
+}
 
 
 /*validación de género de película válido*/
@@ -48,12 +61,17 @@ bool Validaciones::validar_horario(int,int)
     return true;
 }
 
-bool Validaciones::vacio(string dato)
+string Validaciones::leerNoVacio(string mensaje)
 {
-    if(dato.length() == 0)
-        return true;
-    else
-        return false;
+    string aux;
+
+    do{
+        aux = Leer(mensaje);
+        if(aux.length() == 0)
+            cout << "Dato requerido!" << endl;
+    }while(aux.length() == 0);
+
+    return aux;
 }
 
 
