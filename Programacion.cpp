@@ -24,9 +24,16 @@ void Programacion::getHorario()
 
 }
 
+/*Retorna el género de la película contenida en la programación*/
 string Programacion::getGenero()
 {
     return laPelicula.getGenero();
+}
+
+/*Retorna el nombre de la película contenida en la programación*/
+string Programacion::getNom()
+{
+    return laPelicula.getNom();
 }
 
 /*Muestra la información de la película y el horario de incio y fin en horas y minutos*/

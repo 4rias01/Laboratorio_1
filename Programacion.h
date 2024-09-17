@@ -16,6 +16,7 @@ class Programacion
         void definir_horario();
         void getHorario();
         string getGenero();
+        string getNom();
         string mostrarPelicula();
 };
 #else

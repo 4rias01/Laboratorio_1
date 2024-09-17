@@ -46,8 +46,7 @@ int main()
                 break;
             
             case 4:
-                cout << "Has seleccionado la Opción: Consultar horario película." << endl;
-                // Aquí agregar la lógica para consultar horario de una película
+                elCine.consult_por_horario();
                 break;
             
             case 5:

@@ -13,7 +13,7 @@ class Sala
 
     public:
         Sala();
-        string buscarGenero(string);
+        string buscarPelicula(string, string);
         ~Sala();
 
 };

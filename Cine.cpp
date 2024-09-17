@@ -41,14 +41,39 @@ double Cine::getPrecio_general()
 }
 
 void Cine::consult_por_horario()
-
 {
+    string nombrePeli, mensaje = "", genero = "";
+
+    cout << "Has seleccionado la Opción: Consultar horario película." << endl;
+
+    nombrePeli = val.leerNoVacio("Ingrese el nombre de la película: ");
+
+    for(int i = 0; i < cantSalas; i++)
+    {
+        mensaje += salasArr[i].buscarPelicula(genero, nombrePeli);
+    }
+    
+    if(val.vacio(mensaje) == true)
+    {
+        cout << "Actualmente no se proyecta la película " << nombrePeli << endl;
+        cout << "Lo sentimos :c" << endl;
+    }
+    else
+    {
+        cout << "La película " << nombrePeli << " está en: " << endl;
+        cout << mensaje;
+    }
+
+
+
+
+
 
 }
 
 void Cine::consult_por_genero()
 {
-    string genero;
+    string genero, nombre = "";
     string mensaje = "";
 
     cout << "Has seleccionado la Opción: Consultar películas por género." << endl;
@@ -63,7 +88,7 @@ void Cine::consult_por_genero()
 
     for(int i = 0; i < cantSalas; i++)
     {
-        mensaje += salasArr[i].buscarGenero(genero);
+        mensaje += salasArr[i].buscarPelicula(genero, nombre);
     }
     
     if(val.vacio(mensaje) == true)
@@ -76,10 +101,6 @@ void Cine::consult_por_genero()
         cout << "Películas de " << genero << " : " << endl;
         cout << mensaje;
     }
-
-
-
-
 
 }
 
