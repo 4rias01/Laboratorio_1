@@ -6,7 +6,7 @@ using namespace std;
 
 Programacion::Programacion()
 {
-  cant_peliculas = 0
+  cant_peliculas = 0;
 }
 
 
