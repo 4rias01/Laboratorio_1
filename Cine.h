@@ -9,6 +9,8 @@ class Cine
     private:
         double precio_general;
         Sala salasArr[5];
+        Pelicula catalogo[20];
+        Pelicula NoPelicula;
         int cantSalas;
         int cantPeliculas;
     
@@ -22,6 +24,8 @@ class Cine
         double getPrecio_general();
         void ingresarPelicula();
         void ingresarSala();
+        void ensayo();
+        Pelicula buscarPelicula(string);
 };
 
 #else

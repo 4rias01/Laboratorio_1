@@ -3,17 +3,19 @@
 
 #include "Pelicula.h"
 #include "Programacion.h"
+#include <string>
 
 class Sala
 {
     private:
     string nombre;
-    
     Programacion listProgramacion[4];
 
     public:
         Sala();
-        string buscarPelicula(string, string);
+        Sala(string, Programacion[4]);
+        string buscarGenero(string);
+        string buscarNombre(string);
         ~Sala();
 
 };

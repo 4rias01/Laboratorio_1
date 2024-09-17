@@ -46,6 +46,12 @@ Pelicula::Pelicula(string _nombre, string _genero, double precioGen)
 
 }
 
+/*Constructor de clase que asigna sólo nombre*/
+Pelicula::Pelicula(string _nombre)
+{
+    nombre = _nombre;
+}
+
 Pelicula::~Pelicula()
 {
 

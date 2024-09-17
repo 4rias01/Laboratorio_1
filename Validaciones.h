@@ -5,8 +5,7 @@
 
 using namespace std;
 
-string minus(string);
-string Leer(string);
+
 
 class Validaciones
 {
@@ -17,8 +16,15 @@ class Validaciones
         ~Validaciones();
         bool validar_genero(string);
         bool validar_horario(int,int);
+        bool validar_pelicula(string, Pelicula[], int);
         string leerNoVacio(string);
+        double leerNoVacioNoNegativo(string);
         bool vacio (string);
+        bool validar_hora_comp(double, double, double, double, Programacion);
+        bool validar_hora(double, double, double, double);
+        string minusc(string);
+        string Leer(string);
+        string capital(string);
         
 
 };

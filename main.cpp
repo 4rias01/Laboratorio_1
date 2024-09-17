@@ -19,6 +19,8 @@ int main()
 
     elCine.setPrecio_general();  //Pide y establece el precio general
 
+    elCine.ensayo();
+
     do {
         // Mostrar el menú
         cout << "Menú de opciones:" << endl;
@@ -29,7 +31,7 @@ int main()
         cout << "5. Salir" << endl;
 
         // Obtener la opción del usuario
-        opc = stoi(Leer("Selecciona una opción: "));
+        opc = stoi(val.leerNoVacio("Selecciona una opción: "));
 
         // Utilizamos switch para las diferentes opciones
         switch(opc){

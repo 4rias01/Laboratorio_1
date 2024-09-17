@@ -14,6 +14,7 @@ class Pelicula
 
     public:
         Pelicula();
+        Pelicula(string);
         Pelicula(string, string, double);
         double calPrecio(double, string);
         string getNom();
