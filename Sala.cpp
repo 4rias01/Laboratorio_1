@@ -4,7 +4,6 @@
 
 using namespace std;
 
-Validaciones valSala = Validaciones();
 
 /*Constructor vacío de la clase Sala*/
 Sala::Sala()
@@ -32,9 +31,9 @@ string Sala::buscarGenero(string genero)
 
     for(int i = 0; i < 4; i++)
     {   
-        if(valSala.minusc(listProgramacion[i].getGenero()) == valSala.minusc(genero))
+        if(val.minusc(listProgramacion[i].getGenero()) == val.minusc(genero))
         {
-            mensaje += listProgramacion[i].mostrarPelicula() + "Sala: " + nombre;
+            mensaje += listProgramacion[i].mostrarPelicula() + "Sala: " + nombre + "\n\n";
         }
     }
 
@@ -47,9 +46,9 @@ string Sala::buscarNombre(string nombrePeli)
 
     for(int i = 0; i < 4; i++)
     {   
-        if(valSala.minusc(listProgramacion[i].getNom()) == valSala.minusc(nombrePeli))
+        if(val.minusc(listProgramacion[i].getNom()) == val.minusc(nombrePeli))
         {
-            mensaje += listProgramacion[i].mostrarFuncion() + "Sala: " + nombre;
+            mensaje += listProgramacion[i].mostrarFuncion() + "Sala: " + nombre + "\n\n";
         }
     }
 

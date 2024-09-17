@@ -68,11 +68,6 @@ bool Validaciones::validar_genero(string genero)
 }
 
 
-bool Validaciones::validar_horario(int,int)
-{
-    return true;
-}
-
 bool Validaciones::vacio(string dato)
 {
     if(dato.length() == 0)
@@ -94,7 +89,7 @@ string Validaciones::leerNoVacio(string mensaje)
     return aux;
 }
 
-double Validaciones::leerNoVacioNoNegativo(string mensaje)
+double Validaciones::leerNoVacioNoCero(string mensaje)
 {
     string aux;
 
@@ -102,10 +97,10 @@ double Validaciones::leerNoVacioNoNegativo(string mensaje)
         aux = Leer(mensaje);
         if(vacio(aux) == true)
             cout << "Dato requerido!" << endl;
-        else if(stod(aux) < 0)
-            cout << "Inválido el valor debe ser positivo" << endl;
+        else if(stod(aux) <= 0)
+            cout << "Inválido! El valor debe ser positivo!" << endl;
 
-    }while((vacio(aux) == true) or (stod(aux) < 0));
+    }while((vacio(aux) == true) or (stod(aux) <= 0));
 
     return stod(aux);
 }
@@ -132,7 +127,8 @@ bool Validaciones::validar_hora(double hIncial, double mInicial, double hFinal, 
         return true;
 }
 
-bool Validaciones::validar_hora_comp(double hInicial, double mInicial, double hFinal, double mFinal, Programacion comparacion)
+/*Valida que los horarios de dos programaciones no se sobrelapen*/
+bool Validaciones::comparar_hora(double hInicial, double mInicial, double hFinal, double mFinal, Programacion comparacion, int llave)
 {
     double inicial = 0, final = 0;
     double compInicial = comparacion.getHoraInicial();
@@ -141,12 +137,10 @@ bool Validaciones::validar_hora_comp(double hInicial, double mInicial, double hF
     inicial = hInicial + (mInicial)/60;
     final = hFinal + (mFinal)/60;
     
-    if(validar_hora(hInicial, mInicial, hFinal, mFinal) == false)
-        return false;
-    else if(((inicial >= compInicial) and (inicial <= compFinal)) or
+    if(((inicial >= compInicial) and (inicial <= compFinal)) or
     ((final >= compInicial) and (final <= compFinal)))
     {
-        cout << "Horario no disponible, ocupado por ";
+        cout << "Horario no disponible, ocupado por programación #" << (llave + 1) << endl;
         return false;
     }
     else
@@ -155,16 +149,47 @@ bool Validaciones::validar_hora_comp(double hInicial, double mInicial, double hF
 
 }
 
-bool Validaciones::validar_pelicula(string nombre, Pelicula Pelis[], int cantPelis)
+/*Válida que el nombre y género reicbidos coincidan con alguna película del catalogo*/
+bool Validaciones::validar_pelicula(string nombre, string genero, Pelicula Pelis[], int cantPelis)
 {
     nombre = minusc(nombre);
+    genero = minusc(genero);
 
     for(int i = 0;  i < cantPelis; i++)
     {
-        if(minusc(Pelis[i].getNom()) == nombre)
+        if((minusc(Pelis[i].getNom()) == nombre) and
+        (minusc(Pelis[i].getGenero()) == genero))
             return true;
     }
 
     return false;
 }
 
+double Validaciones::leerHora(string mensaje)
+{
+    string aux;
+
+    do
+    {
+        aux = leerNoVacio(mensaje);
+        if(stod(aux) < 0 or stod(aux) >= 24)
+            cout << "Valor de hora inválido!" << endl;
+
+    }while(stod(aux) < 0 or stod(aux) >= 24);
+
+    return stod(aux);
+}
+
+double Validaciones::leerMinuto(string mensaje)
+{
+    string aux;
+    do
+    {
+        aux = leerNoVacio(mensaje);
+        if(stod(aux) < 0 or stod(aux) >= 60)
+            cout << "Valor de minuto inválido!" << endl;
+
+    }while(stod(aux) < 0 or stod(aux) >= 60);
+
+    return stod(aux);
+}

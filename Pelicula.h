@@ -16,9 +16,10 @@ class Pelicula
         Pelicula();
         Pelicula(string);
         Pelicula(string, string, double);
-        double calPrecio(double, string);
+        double calPrecio(double);
         string getNom();
         string getGenero();
+        string getPrecio();
         ~Pelicula();
 };
 #else

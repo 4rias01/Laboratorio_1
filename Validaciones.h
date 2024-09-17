@@ -15,16 +15,17 @@ class Validaciones
         Validaciones();
         ~Validaciones();
         bool validar_genero(string);
-        bool validar_horario(int,int);
-        bool validar_pelicula(string, Pelicula[], int);
+        bool validar_pelicula(string, string, Pelicula[], int);
         string leerNoVacio(string);
-        double leerNoVacioNoNegativo(string);
+        double leerNoVacioNoCero(string);
         bool vacio (string);
-        bool validar_hora_comp(double, double, double, double, Programacion);
+        bool comparar_hora(double, double, double, double, Programacion, int);
         bool validar_hora(double, double, double, double);
         string minusc(string);
         string Leer(string);
         string capital(string);
+        double leerHora(string);
+        double leerMinuto(string);
         
 
 };

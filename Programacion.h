@@ -19,11 +19,12 @@ class Programacion
         void definir_horario();
         double getHoraInicial();
         double getHoraFinal();
-        double getDuracion();
+        string getDuracion();
         string getGenero();
         string getNom();
         string mostrarPelicula();
         string mostrarFuncion();
+        string mostrarInfo();
 };
 #else
 class Programacion;

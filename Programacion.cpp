@@ -1,6 +1,7 @@
 #include "Programacion.h"
 #include "Pelicula.h"
 #include <cmath>
+#include <stdio.h>
 
 using namespace std;
 
@@ -42,11 +43,29 @@ double Programacion::getHoraFinal()
     return (hora_final + min_final/60);
 }
 
-/*Retorna la duración de la programacion en formato decimal*/
-double Programacion::getDuracion()
+/*Calcula la duración de la programacion y la retorna en formato de horas y minutos*/
+string Programacion::getDuracion()
 {
-    double tiempo = (hora_final + min_final/60) - (hora_inicio + min_inicio/60);
-    return tiempo;
+    int horaTotal, minTotal;
+    double duracionTotal;
+
+    duracionTotal = (hora_final + (min_final/60)) - (hora_inicio + (min_inicio/60));
+
+    horaTotal = int(duracionTotal);
+    minTotal = int((duracionTotal - horaTotal)*60);
+
+    char bufferh[50];
+    char bufferm[50];
+
+    sprintf(bufferh, "%02d", horaTotal);
+    sprintf(bufferm, "%02d", minTotal);
+    
+    string hora(bufferh);
+    string min(bufferm);
+
+    string mensaje = hora + " hora(s) " + min + " minuto(s) ";
+
+    return mensaje;
 }
 
 /*Retorna el género de la película contenida en la programación*/
@@ -66,11 +85,27 @@ string Programacion::mostrarPelicula()
 {
 
     string mensaje = "";
+    
+    char bufferhI[50];
+    char buffermI[50];
+    char bufferhF[50];
+    char buffermF[50];
+    
+    sprintf(bufferhI, "%02d", int(hora_inicio));
+    sprintf(buffermI, "%02d", int(min_inicio));
+    sprintf(bufferhF, "%02d", int(hora_final));
+    sprintf(buffermF, "%02d", int(min_final));
+
+    string hInicio(bufferhI);
+    string minInicio(buffermI);
+    string hFin(bufferhF);
+    string mFin(buffermF);
 
     mensaje += "\nNombre: " + laPelicula.getNom();
-    mensaje += "\nHora Inicio: " + to_string(floor(hora_inicio)) + ":" + to_string(floor(min_inicio));
-    mensaje += "\nHora Fin: " + to_string(floor(hora_final)) + ":" + to_string(floor(min_final));
-    mensaje += "\nDuración: " + to_string(floor(getDuracion())) + "\n\n";
+    mensaje += "\nHora Inicio: " + hInicio + ":" + minInicio;
+    mensaje += "\nHora Fin: " + hFin + ":" + mFin;
+    mensaje += "\nDuración: " + getDuracion();
+    mensaje += "\nPrecio: $" + laPelicula.getPrecio() + "\n";
 
     return mensaje;
 }
@@ -81,8 +116,54 @@ string Programacion::mostrarFuncion()
 
     string mensaje = "";
 
-    mensaje += "\nHora Inicio: " + hora_inicio.to_string("D2") + ":" + to_string(int(min_inicio));
-    mensaje += "\nHora Fin: " + to_string(int(hora_final)) + ":" + to_string(int(min_final));
-    mensaje += "\nDuración: " + to_string(int(getDuracion())) + "\n\n";
+    char bufferhI[50];
+    char buffermI[50];
+    char bufferhF[50];
+    char buffermF[50];
+    
+    sprintf(bufferhI, "%02d", int(hora_inicio));
+    sprintf(buffermI, "%02d", int(min_inicio));
+    sprintf(bufferhF, "%02d", int(hora_final));
+    sprintf(buffermF, "%02d", int(min_final));
+
+    string hInicio(bufferhI);
+    string minInicio(buffermI);
+    string hFin(bufferhF);
+    string mFin(buffermF);
+
+    mensaje += "\nHora Inicio: " + hInicio + ":" + minInicio;
+    mensaje += "\nHora Fin: " + hFin + ":" + mFin;
+    mensaje += "\nDuración: " + getDuracion();
+    mensaje += "\nPrecio: $" + laPelicula.getPrecio() + "\n";
+    return mensaje;
+}
+
+/*Muestra toda la información de la película*/
+string Programacion::mostrarInfo()
+{
+    string mensaje = "";
+    
+    char bufferhI[50];
+    char buffermI[50];
+    char bufferhF[50];
+    char buffermF[50];
+    
+    sprintf(bufferhI, "%02d", int(hora_inicio));
+    sprintf(buffermI, "%02d", int(min_inicio));
+    sprintf(bufferhF, "%02d", int(hora_final));
+    sprintf(buffermF, "%02d", int(min_final));
+
+    string hInicio(bufferhI);
+    string minInicio(buffermI);
+    string hFin(bufferhF);
+    string mFin(buffermF);
+
+    mensaje += "\nNombre: " + laPelicula.getNom();
+    mensaje += "\nGénero: " + laPelicula.getGenero();
+    mensaje += "\nHora Inicio: " + hInicio + ":" + minInicio;
+    mensaje += "\nHora Fin: " + hFin + ":" + mFin;
+    mensaje += "\nDuración: " + getDuracion();
+    mensaje += "\nPrecio: $" + laPelicula.getPrecio() + "\n";
+
     return mensaje;
 }

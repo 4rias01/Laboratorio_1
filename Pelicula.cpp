@@ -12,10 +12,12 @@ Pelicula::Pelicula()
     genero = "";
 }
 
+/*Calcula el valor del precio de entrada a la película según el género y el precio general*/
+double Pelicula::calPrecio(double _precio)
 
-double Pelicula::calPrecio(double _precio, string _genero)
-// se calculan los parametros para ajustar el valor de las entradas segun el genero de la pelicula
 {
+    string _genero = val.minusc(genero);
+
     if (_genero == "comedia" or _genero=="drama")
     {
         _precio = _precio*1.1;
@@ -42,7 +44,7 @@ Pelicula::Pelicula(string _nombre, string _genero, double precioGen)
 {
     nombre = _nombre;
     genero = _genero;
-    precio = calPrecio(precioGen, _genero);
+    precio = calPrecio(precioGen);
 
 }
 
@@ -62,6 +64,19 @@ string Pelicula::getNom()
 {
     return nombre;
 }
+
+/*Retorna el atributo precio de la película en formato de precio*/
+string Pelicula::getPrecio() 
+{
+    char buffer[50];
+    
+    sprintf(buffer, "%.2f", precio);
+
+    string res(buffer);
+
+    return res;
+}
+
 
 string Pelicula::getGenero() 
 {
