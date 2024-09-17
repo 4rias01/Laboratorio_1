@@ -14,6 +14,7 @@ Pelicula::Pelicula()
 
 
 double Pelicula::calPrecio(double _precio, string _genero)
+// se calculan los parametros para ajustar el valor de las entradas segun el genero de la pelicula
 {
     if (_genero == "comedia" or _genero=="drama")
     {
