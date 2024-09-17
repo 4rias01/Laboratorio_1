@@ -6,7 +6,6 @@ class Programacion
 {
     private:
         Pelicula laPelicula;
-        int cant_peliculas;
 
     public:
         Programacion();
