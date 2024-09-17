@@ -22,6 +22,12 @@ Cine::~Cine(){
 
 }
 
+/*Mensaje de bienvenida al software*/
+void Cine::bienvenida()
+{
+    cout << "Bienvenido al software de administración del Cine!" << endl;
+}
+
 /*Pregunta y establece el precio general de la entrada*/
 void Cine::setPrecio_general()
 {
@@ -42,6 +48,38 @@ void Cine::consult_por_horario()
 
 void Cine::consult_por_genero()
 {
+    string genero;
+    string mensaje = "";
+
+    cout << "Has seleccionado la Opción: Consultar películas por género." << endl;
+
+    do
+    {
+        genero = val.leerNoVacio("Digite el género a buscar: ");
+        if(val.validar_genero(genero) == false)
+            cout << "Género inválido, intente de nuevo: " << endl;
+
+    }while(val.validar_genero(genero) == false);
+
+    for(int i = 0; i < cantSalas; i++)
+    {
+        mensaje += salasArr[i].buscarGenero(genero);
+    }
+    
+    if(val.vacio(mensaje) == true)
+    {
+        cout << "Actualmente no se proyectan películas del género " << genero << endl;
+        cout << "Lo sentimos" << endl;
+    }
+    else
+    {
+        cout << "Películas de " << genero << " : " << endl;
+        cout << mensaje;
+    }
+
+
+
+
 
 }
 

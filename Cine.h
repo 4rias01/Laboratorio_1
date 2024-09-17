@@ -15,6 +15,7 @@ class Cine
     public:
         Cine();
         ~Cine();
+        void bienvenida();
         void setPrecio_general();
         void consult_por_horario();
         void consult_por_genero();

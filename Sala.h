@@ -7,10 +7,13 @@
 class Sala
 {
     private:
-        
-        Programacion listProgramacion[4];
+    string nombre;
+    
+    Programacion listProgramacion[4];
+
     public:
         Sala();
+        string buscarGenero(string);
         ~Sala();
 
 };

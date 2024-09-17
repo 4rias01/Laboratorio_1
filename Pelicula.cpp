@@ -50,7 +50,8 @@ Pelicula::~Pelicula()
 
 }
 
-string Pelicula::getNombre() 
+/*Retorna el atributo nombre de la película*/
+string Pelicula::getNom() 
 {
     return nombre;
 }

@@ -14,6 +14,9 @@ int main()
     int opc;
 
     Cine elCine;  // Crear un objeto de la clase Cine 
+
+    elCine.bienvenida(); //Mensaje de bienvenida
+
     elCine.setPrecio_general();  //Pide y establece el precio general
 
     do {
@@ -39,8 +42,7 @@ int main()
                 break;
             
             case 3:
-                cout << "Has seleccionado la Opción: Consultar películas por género." << endl;
-                // Aquí agregar la lógica para consultar películas por género
+                elCine.consult_por_genero();
                 break;
             
             case 4:

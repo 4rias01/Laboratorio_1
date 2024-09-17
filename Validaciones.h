@@ -18,6 +18,7 @@ class Validaciones
         bool validar_genero(string);
         bool validar_horario(int,int);
         string leerNoVacio(string);
+        bool vacio (string);
         
 
 };

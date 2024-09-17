@@ -61,15 +61,23 @@ bool Validaciones::validar_horario(int,int)
     return true;
 }
 
+bool Validaciones::vacio(string dato)
+{
+    if(dato.length() == 0)
+        return true;
+    else
+        return false;
+}
+
 string Validaciones::leerNoVacio(string mensaje)
 {
     string aux;
 
     do{
         aux = Leer(mensaje);
-        if(aux.length() == 0)
+        if(vacio(mensaje) == true)
             cout << "Dato requerido!" << endl;
-    }while(aux.length() == 0);
+    }while(vacio(mensaje) == true);
 
     return aux;
 }
