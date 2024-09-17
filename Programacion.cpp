@@ -3,7 +3,7 @@
 
 Programacion::Programacion()
 {
-
+  cant_peliculas = 0
 }
 
 
