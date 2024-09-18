@@ -27,7 +27,7 @@ Programacion::Programacion(Pelicula laPeli, double hInicio, double mInicio, doub
    min_inicio = mInicio;
    hora_final = hFin;
    min_final = mFin;
-   
+
    for(int i = 0; i < 30; i++)
    {
     listEntradas[i] = Boleta(i+1);
@@ -75,7 +75,7 @@ string Programacion::getDuracion()
 
     sprintf(bufferh, "%02d", horaTotal);
     sprintf(bufferm, "%02d", minTotal);
-    
+
     string hora(bufferh);
     string min(bufferm);
 
@@ -101,12 +101,12 @@ string Programacion::mostrarPelicula()
 {
 
     string mensaje = "";
-    
+
     char bufferhI[50];
     char buffermI[50];
     char bufferhF[50];
     char buffermF[50];
-    
+
     sprintf(bufferhI, "%02d", int(hora_inicio));
     sprintf(buffermI, "%02d", int(min_inicio));
     sprintf(bufferhF, "%02d", int(hora_final));
@@ -122,7 +122,8 @@ string Programacion::mostrarPelicula()
     mensaje += "\nHora Fin: " + hFin + ":" + mFin;
     mensaje += "\nDuración: " + getDuracion();
     mensaje += "\nPrecio: $" + laPelicula.getPrecio();
-    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas()) + "\n";
+    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas());
+    mensaje += string("\n******************************") + string("\n");
 
     return mensaje;
 }
@@ -137,7 +138,7 @@ string Programacion::mostrarFuncion()
     char buffermI[50];
     char bufferhF[50];
     char buffermF[50];
-    
+
     sprintf(bufferhI, "%02d", int(hora_inicio));
     sprintf(buffermI, "%02d", int(min_inicio));
     sprintf(bufferhF, "%02d", int(hora_final));
@@ -152,7 +153,9 @@ string Programacion::mostrarFuncion()
     mensaje += "\nHora Fin: " + hFin + ":" + mFin;
     mensaje += "\nDuración: " + getDuracion();
     mensaje += "\nPrecio: $" + laPelicula.getPrecio();
-    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas()) + "\n";
+    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas());
+    mensaje += string("\n******************************") + string("\n");
+
 
     return mensaje;
 }
@@ -161,12 +164,12 @@ string Programacion::mostrarFuncion()
 string Programacion::mostrarInfo()
 {
     string mensaje = "";
-    
+
     char bufferhI[50];
     char buffermI[50];
     char bufferhF[50];
     char buffermF[50];
-    
+
     sprintf(bufferhI, "%02d", int(hora_inicio));
     sprintf(buffermI, "%02d", int(min_inicio));
     sprintf(bufferhF, "%02d", int(hora_final));
@@ -183,7 +186,9 @@ string Programacion::mostrarInfo()
     mensaje += "\nHora Fin: " + hFin + ":" + mFin;
     mensaje += "\nDuración: " + getDuracion();
     mensaje += "\nPrecio: $" + laPelicula.getPrecio();
-    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas()) + "\n";
+    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas());
+    mensaje += string("\n******************************") + string("\n");
+
 
     return mensaje;
 }

@@ -18,14 +18,14 @@ int main()
 {
     int opc;
     //Objeto validaciones para validar los datos ingresados
-    Validaciones valMain = Validaciones();  
-    Cine elCine;  // Crear un objeto de la clase Cine 
+    Validaciones valMain = Validaciones();
+    Cine elCine;  // Crear un objeto de la clase Cine
 
     elCine.bienvenida(); //Mensaje de bienvenida
 
     elCine.setPrecio_general();  //Pide y establece el precio general
 
-    //elCine.ensayo();
+    elCine.ensayo();
 
     do {
         // Mostrar el menú
@@ -44,23 +44,23 @@ int main()
             case 1:
                 elCine.ingresarPelicula();
                 break;
-            
+
             case 2:
                 elCine.ingresarSala();
                 break;
-            
+
             case 3:
                 elCine.consult_por_genero();
                 break;
-            
+
             case 4:
                 elCine.consult_por_horario();
                 break;
-            
+
             case 5:
                 cout << "Termina la ejecución del programa." << endl;
                 break;
-            
+
             default:
                 cout << "Opción inválida. Por favor, selecciona un número entre 1 y 5." << endl;
         }

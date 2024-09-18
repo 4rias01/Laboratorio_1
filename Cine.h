@@ -21,12 +21,12 @@ class Cine
         Pelicula NoPelicula;
         int cantSalas;
         int cantPeliculas;
-    
+
     public:
         Cine();
         ~Cine();
         void bienvenida();
-        //void ensayo();
+        void ensayo();
         void setPrecio_general();
         void consult_por_horario();
         void consult_por_genero();
@@ -38,5 +38,5 @@ class Cine
 
 #else
 class Cine;
-#endif 
+#endif
 
