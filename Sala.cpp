@@ -1,9 +1,19 @@
+/*
+Juan Diego Cárdenas Mejía 2416437-3743
+Santiago Arias Rojas 2416285-3743
+Steven Fernando Aragón Alvarez 2418804
+
+FUNDAMENTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+Prof. Leoviviana Moreno Torres
+Laboratorio 1
+*/
 #include "Sala.h"
-#include "Programacion.cpp"
+
 
 
 using namespace std;
 
+Validaciones valSala = Validaciones();
 
 /*Constructor vacío de la clase Sala*/
 Sala::Sala()
@@ -20,18 +30,20 @@ Sala::Sala(string nom, Programacion programa[4])
         listProgramacion[i] = programa[i];
 } 
 
+/*Desructor de la clase Sala*/
 Sala::~Sala()
 {
 
 }
 
+/*Invoca la función de mostrar info de la película si el genero de la programación coincide con el ingresado*/
 string Sala::buscarGenero(string genero)
 {
     string mensaje = "";
 
     for(int i = 0; i < 4; i++)
     {   
-        if(val.minusc(listProgramacion[i].getGenero()) == val.minusc(genero))
+        if(valSala.minusc(listProgramacion[i].getGenero()) == valSala.minusc(genero))
         {
             mensaje += listProgramacion[i].mostrarPelicula() + "Sala: " + nombre + "\n\n";
         }
@@ -40,13 +52,14 @@ string Sala::buscarGenero(string genero)
     return mensaje;
 }
 
+/*Invoca la función de mostrar info de la película si el nombre de la programación coincide con el ingresado*/
 string Sala::buscarNombre(string nombrePeli)
 {
     string mensaje = "";
 
     for(int i = 0; i < 4; i++)
     {   
-        if(val.minusc(listProgramacion[i].getNom()) == val.minusc(nombrePeli))
+        if(valSala.minusc(listProgramacion[i].getNom()) == valSala.minusc(nombrePeli))
         {
             mensaje += listProgramacion[i].mostrarFuncion() + "Sala: " + nombre + "\n\n";
         }

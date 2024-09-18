@@ -1,3 +1,12 @@
+/*
+Juan Diego Cárdenas Mejía 2416437-3743
+Santiago Arias Rojas 2416285-3743
+Steven Fernando Aragón Alvarez 2418804
+
+FUNDAMENTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+Prof. Leoviviana Moreno Torres
+Laboratorio 1
+*/
 #include "Cine.h"
 #include "Validaciones.h"
 #include <iostream>
@@ -9,7 +18,7 @@ using namespace std;
 
 
 //Objeto validaciones para validar los datos ingresados
-Validaciones val = Validaciones(); 
+Validaciones valCine = Validaciones(); 
 
 
 /*Constructor vacío de la clase Cine,  inicializa el contador numSalas a 0*/
@@ -27,6 +36,7 @@ Cine::~Cine()
 
 }
 
+/* Peliculas y programaciones preingresadas para ensayo rápido
 void Cine:: ensayo()
 {
     catalogo[0] = Pelicula("Ramona", "Romance", precio_general);
@@ -51,6 +61,8 @@ void Cine:: ensayo()
 
 }
 
+*/
+
 /*Mensaje de bienvenida al software*/
 void Cine::bienvenida()
 {
@@ -60,7 +72,7 @@ void Cine::bienvenida()
 /*Pregunta y establece el precio general de la entrada*/
 void Cine::setPrecio_general()
 {
-    precio_general = val.leerNoVacioNoCero("Introduce el precio general de las boletas: "); 
+    precio_general = valCine.leerNoVacioNoCero("Introduce el precio general de las boletas: "); 
 }
 
 /*Retorna el precio general de la entrada*/
@@ -74,20 +86,21 @@ Pelicula Cine::buscarPelicula(string nombre)
 {
     for(int i = 0; i < cantPeliculas; i++)
     {
-        if((val.minusc(nombre)) == val.minusc(catalogo[i].getNom()))
+        if((valCine.minusc(nombre)) == valCine.minusc(catalogo[i].getNom()))
             return catalogo[i];
     }
     
     return NoPelicula;
 }
 
+/*Invoca en las salas la busqueda por nombre de película*/
 void Cine::consult_por_horario()
 {
     string nombrePeli = "", mensaje = "";
 
     cout << "Has seleccionado la Opción: Consultar horario película" << endl;
 
-    nombrePeli = val.leerNoVacio("Ingrese el nombre de la película: ");
+    nombrePeli = valCine.leerNoVacio("Ingrese el nombre de la película: ");
 
     if(buscarPelicula(nombrePeli).getNom() == "Nada")
         cout << "Película no disponible en el catálogo." << endl;
@@ -97,7 +110,7 @@ void Cine::consult_por_horario()
             mensaje += salasArr[i].buscarNombre(nombrePeli);
         }
         
-        if(val.vacio(mensaje) == true)
+        if(valCine.vacio(mensaje) == true)
         {
             cout << "Actualmente no se proyecta la película " << nombrePeli << endl;
             cout << "Lo sentimos :c" << endl;
@@ -112,6 +125,7 @@ void Cine::consult_por_horario()
 
 }
 
+/*Busca en salas películas por el genero*/
 void Cine::consult_por_genero()
 {
     string genero = "";
@@ -121,25 +135,25 @@ void Cine::consult_por_genero()
 
     do
     {
-        genero = val.leerNoVacio("Digite el género a buscar: ");
-        if(val.validar_genero(genero) == false)
+        genero = valCine.leerNoVacio("Digite el género a buscar: ");
+        if(valCine.validar_genero(genero) == false)
             cout << "Género inválido, intente de nuevo: " << endl;
 
-    }while(val.validar_genero(genero) == false);
+    }while(valCine.validar_genero(genero) == false);
 
     for(int i = 0; i < cantSalas; i++)
     {
         mensaje += salasArr[i].buscarGenero(genero);
     }
     
-    if(val.vacio(mensaje) == true)
+    if(valCine.vacio(mensaje) == true)
     {
         cout << "Actualmente no se proyectan películas del género " << genero << endl;
         cout << "Lo sentimos:c" << endl;
     }
     else
     {
-        cout << "\nPelículas de " << val.capital(genero) << ": " << endl;
+        cout << "\nPelículas de " << valCine.capital(genero) << ": " << endl;
         cout << mensaje;
     }
 
@@ -159,25 +173,26 @@ void Cine::ingresarPelicula()
                 
                     // Validar y obtener el género de la película
             do{
-                genero = val.leerNoVacio("Ingrese el género de la película: ");
+                genero = valCine.leerNoVacio("Ingrese el género de la película: ");
                             
-                if (val.validar_genero(genero) == false) {
+                if (valCine.validar_genero(genero) == false) {
                     cout << "Género inválido, intente de nuevo: " << endl;
                 }
-            }while (val.validar_genero(genero) == false);  //Sigue pidiendo género hasta que sea válido
+            }while (valCine.validar_genero(genero) == false);  //Sigue pidiendo género hasta que sea válido
         
         
-            nombre = val.leerNoVacio("Ingrese el nombre de la película: ");
-            if(val.validar_pelicula(nombre, genero, catalogo, cantPeliculas) == true)
+            //Valida que la película (mismo genero y nombre) no exista ya en el catalogo
+            nombre = valCine.leerNoVacio("Ingrese el nombre de la película: ");
+            if(valCine.validar_pelicula(nombre, genero, catalogo, cantPeliculas) == true)
                 cout << "Película ya existente!" << endl;
 
-        }while(val.validar_pelicula(nombre, genero, catalogo, cantPeliculas) == true);
+        }while(valCine.validar_pelicula(nombre, genero, catalogo, cantPeliculas) == true);
         
         
 
                     
         // Crea el nuevo objeto película
-        catalogo[cantPeliculas] = Pelicula(val.capital(nombre), val.capital(genero), precio_general);  //Llama al constructor de la clase Pelicula y lo almacena en el cátalogo del cine
+        catalogo[cantPeliculas] = Pelicula(valCine.capital(nombre), valCine.capital(genero), precio_general);  //Llama al constructor de la clase Pelicula y lo almacena en el cátalogo del cine
         cantPeliculas++; //Aumenta en 1 el contador de películas
         cout << "Película ingresada correctamente!" << endl;
     }
@@ -198,7 +213,7 @@ void Cine::ingresarSala()
         Programacion programa[4];
 
        //Lectura al usuario de la variable nombre 
-        nombre = val.leerNoVacio("Ingrese nombre de sala: ");
+        nombre = valCine.leerNoVacio("Ingrese nombre de sala: ");
 
         cout << "Ingreso de programación de Sala " << nombre << endl;
 
@@ -208,7 +223,7 @@ void Cine::ingresarSala()
         {
             do
             {
-                nombrePelicula = val.leerNoVacio("Ingrese el nombre de la película # " + to_string(i+1) + ": ");
+                nombrePelicula = valCine.leerNoVacio("Ingrese el nombre de la película # " + to_string(i+1) + ": ");
                 if(buscarPelicula(nombrePelicula).getNom() == "Nada")
                     cout << "Película no hallada!" << endl;
 
@@ -218,23 +233,23 @@ void Cine::ingresarSala()
             
             do
             {
-                hInicio = val.leerHora("Ingrese la hora de inicio de la programación #" + to_string(i+1) + ": ");
+                hInicio = valCine.leerHora("Ingrese la hora de inicio de la programación #" + to_string(i+1) + ": ");
 
-                mInicio = val.leerMinuto("Ingrese los minutos de inicio de la programación #" + to_string(i+1)+ ": ");
+                mInicio = valCine.leerMinuto("Ingrese los minutos de inicio de la programación #" + to_string(i+1)+ ": ");
 
-                hFin = val.leerHora("Ingrese la hora de finalización de la programación #" + to_string(i+1) + ": ");
+                hFin = valCine.leerHora("Ingrese la hora de finalización de la programación #" + to_string(i+1) + ": ");
 
-                mFin = val.leerMinuto("Ingrese los minutos de finalización de la programación #" + to_string(i+1) + ": ");
+                mFin = valCine.leerMinuto("Ingrese los minutos de finalización de la programación #" + to_string(i+1) + ": ");
 
                 programa[i] = Programacion(buscarPelicula(nombrePelicula), hInicio, mInicio, hFin, mFin);
 
-                horarioValido = val.validar_hora(hInicio, mInicio, hFin, mFin);
+                horarioValido = valCine.validar_hora(hInicio, mInicio, hFin, mFin);
 
                 if((i > 0) and (horarioValido == true))
                 {
                     for(int j = 0; j < i; j++)
                     {
-                        horarioValido = horarioValido*val.comparar_hora(hInicio, mInicio, hFin, mFin, programa[j], j);
+                        horarioValido = horarioValido*valCine.comparar_hora(hInicio, mInicio, hFin, mFin, programa[j], j);
                     }
                 }
 

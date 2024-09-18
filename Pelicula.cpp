@@ -1,9 +1,21 @@
+/*
+Juan Diego Cárdenas Mejía 2416437-3743
+Santiago Arias Rojas 2416285-3743
+Steven Fernando Aragón Alvarez 2418804
+
+FUNDAMENTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+Prof. Leoviviana Moreno Torres
+Laboratorio 1
+*/
 #include "Pelicula.h"
 #include "Validaciones.h"
 #include "Cine.h"
 #include <iostream>
 
 using namespace std;
+
+/*Objeto validaciones para manejo de datos*/
+Validaciones valPeli = Validaciones(); 
 
 /*Constructor vacio de clase, incializa el nombre y género como strings vacios*/
 Pelicula::Pelicula()
@@ -16,7 +28,7 @@ Pelicula::Pelicula()
 double Pelicula::calPrecio(double _precio)
 
 {
-    string _genero = val.minusc(genero);
+    string _genero = valPeli.minusc(genero);
 
     if (_genero == "comedia" or _genero=="drama")
     {
@@ -54,11 +66,6 @@ Pelicula::Pelicula(string _nombre)
     nombre = _nombre;
 }
 
-Pelicula::~Pelicula()
-{
-
-}
-
 /*Retorna el atributo nombre de la película*/
 string Pelicula::getNom() 
 {
@@ -77,8 +84,14 @@ string Pelicula::getPrecio()
     return res;
 }
 
-
+/*Retorna el atributo genero de la película*/
 string Pelicula::getGenero() 
 {
     return genero;
+}
+
+/*Destructor de la clase película*/
+Pelicula::~Pelicula()
+{
+
 }

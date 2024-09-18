@@ -1,3 +1,12 @@
+/*
+Juan Diego Cárdenas Mejía 2416437-3743
+Santiago Arias Rojas 2416285-3743
+Steven Fernando Aragón Alvarez 2418804
+
+FUNDAMENTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+Prof. Leoviviana Moreno Torres
+Laboratorio 1
+*/
 #include "Validaciones.h"
 #include <string>
 
@@ -67,7 +76,7 @@ bool Validaciones::validar_genero(string genero)
         return false;
 }
 
-
+/*Verifica si un string está vacío*/
 bool Validaciones::vacio(string dato)
 {
     if(dato.length() == 0)
@@ -76,6 +85,7 @@ bool Validaciones::vacio(string dato)
         return false;
 }
 
+/*Continua pidiendo un dato hasta que esté no vacio*/
 string Validaciones::leerNoVacio(string mensaje)
 {
     string aux;
@@ -89,6 +99,7 @@ string Validaciones::leerNoVacio(string mensaje)
     return aux;
 }
 
+/*Continua pidiendo un dato hasta que esté no vacio y sea mayor a 0*/
 double Validaciones::leerNoVacioNoCero(string mensaje)
 {
     string aux;
@@ -165,6 +176,7 @@ bool Validaciones::validar_pelicula(string nombre, string genero, Pelicula Pelis
     return false;
 }
 
+/*Pide el dato hora y continua pidiendolo hasta que no esté vacío y esté entre 0 y 24*/
 double Validaciones::leerHora(string mensaje)
 {
     string aux;
@@ -180,6 +192,7 @@ double Validaciones::leerHora(string mensaje)
     return stod(aux);
 }
 
+/*Pide el dato minuto y continua pidiendolo hasta que no esté vacío y esté entre 0 y 59*/
 double Validaciones::leerMinuto(string mensaje)
 {
     string aux;

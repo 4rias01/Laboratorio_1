@@ -1,25 +1,31 @@
+/*
+Juan Diego Cárdenas Mejía 2416437-3743
+Santiago Arias Rojas 2416285-3743
+Steven Fernando Aragón Alvarez 2418804
+
+FUNDAMENTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+Prof. Leoviviana Moreno Torres
+Laboratorio 1
+*/
+
 #include "Cine.h"
-#include "Cine.cpp"
-#include "Pelicula.h"
-#include "Pelicula.cpp"
-#include "Sala.h"
-#include "Sala.cpp"
 #include "Validaciones.h"
-#include "Validaciones.cpp"
 #include <iostream>
+
 
 
 int main()
 {
     int opc;
-
+    //Objeto validaciones para validar los datos ingresados
+    Validaciones valMain = Validaciones();  
     Cine elCine;  // Crear un objeto de la clase Cine 
 
     elCine.bienvenida(); //Mensaje de bienvenida
 
     elCine.setPrecio_general();  //Pide y establece el precio general
 
-    elCine.ensayo();
+    //elCine.ensayo();
 
     do {
         // Mostrar el menú
@@ -31,7 +37,7 @@ int main()
         cout << "5. Salir" << endl;
 
         // Obtener la opción del usuario
-        opc = stoi(val.leerNoVacio("Selecciona una opción: "));
+        opc = stoi(valMain.leerNoVacio("Selecciona una opción: "));
 
         // Utilizamos switch para las diferentes opciones
         switch(opc){

@@ -1,5 +1,13 @@
+/*
+Juan Diego Cárdenas Mejía 2416437-3743
+Santiago Arias Rojas 2416285-3743
+Steven Fernando Aragón Alvarez 2418804
+
+FUNDAMENTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+Prof. Leoviviana Moreno Torres
+Laboratorio 1
+*/
 #include "Programacion.h"
-#include "Pelicula.h"
 #include <cmath>
 #include <stdio.h>
 
@@ -19,16 +27,24 @@ Programacion::Programacion(Pelicula laPeli, double hInicio, double mInicio, doub
    min_inicio = mInicio;
    hora_final = hFin;
    min_final = mFin;
+   
+   for(int i = 0; i < 30; i++)
+   {
+    listEntradas[i] = Boleta(i+1);
+   }
 
 }
 
-void Programacion::ingresar_pelicula()
+int Programacion::contarEntradas()
 {
+    int disponibles = 0;
+    for(int i = 0; i < 30; i++)
+    {
+        if(listEntradas[i].getEstado() == false)
+            disponibles++;
+    }
 
-}
-void Programacion::definir_horario()
-{
-
+    return disponibles;
 }
 
 /*Retorna la hora de inicio de la pelicula en formato decimal*/
@@ -105,7 +121,8 @@ string Programacion::mostrarPelicula()
     mensaje += "\nHora Inicio: " + hInicio + ":" + minInicio;
     mensaje += "\nHora Fin: " + hFin + ":" + mFin;
     mensaje += "\nDuración: " + getDuracion();
-    mensaje += "\nPrecio: $" + laPelicula.getPrecio() + "\n";
+    mensaje += "\nPrecio: $" + laPelicula.getPrecio();
+    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas()) + "\n";
 
     return mensaje;
 }
@@ -134,7 +151,9 @@ string Programacion::mostrarFuncion()
     mensaje += "\nHora Inicio: " + hInicio + ":" + minInicio;
     mensaje += "\nHora Fin: " + hFin + ":" + mFin;
     mensaje += "\nDuración: " + getDuracion();
-    mensaje += "\nPrecio: $" + laPelicula.getPrecio() + "\n";
+    mensaje += "\nPrecio: $" + laPelicula.getPrecio();
+    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas()) + "\n";
+
     return mensaje;
 }
 
@@ -163,7 +182,8 @@ string Programacion::mostrarInfo()
     mensaje += "\nHora Inicio: " + hInicio + ":" + minInicio;
     mensaje += "\nHora Fin: " + hFin + ":" + mFin;
     mensaje += "\nDuración: " + getDuracion();
-    mensaje += "\nPrecio: $" + laPelicula.getPrecio() + "\n";
+    mensaje += "\nPrecio: $" + laPelicula.getPrecio();
+    mensaje += "\nEntradas disponibles: " + to_string(contarEntradas()) + "\n";
 
     return mensaje;
 }
