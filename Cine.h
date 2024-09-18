@@ -6,7 +6,7 @@
 
 class Cine
 {
-    private:
+    private:                              // atributos
         double precio_general;            //atributo que se establece al inicio del programa, es el valor base de la boleteria.
         Sala salasArr[5];                 // se crea un arreglo de objetos tipo "Sala" de tamaño 5.
         Pelicula catalogo[20];            // se crea un arreglo de tamaño 20 que contiene 20 peliculas.
@@ -24,8 +24,8 @@ class Cine
         double getPrecio_general();         //retorna el "valor_general".
         void ingresarPelicula();            //ingresa una pelicula al catalogo.
         void ingresarSala();                 //ingresa una sala junto con su programacion.
-        void ensayo();                        
-        Pelicula buscarPelicula(string);    
+        void ensayo();                       //establece valores pra probar el proyecto.
+        Pelicula buscarPelicula(string);    //*Busca una película por nombre del catalogo y retorna el objeto pelicula*/
 };
 
 #else
